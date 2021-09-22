@@ -1,0 +1,48 @@
+{
+  "name": "@quicksilver0218/react-pagin",
+  "version": "1.0.2",
+  "description": "A lightweight element organizing component allowing high customization for pagination implemented in React.",
+  "main": "lib",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && cd lib && uglifyjs --compress --mangle -o index.js index.js",
+    "format": "prettier --write \"src/**/*.tsx\"",
+    "lint": "eslint src/** --fix",
+    "prepublishOnly": "npm run lint && npm run build"
+  },
+  "keywords": [
+    "React",
+    "Pagination",
+    "Page Navigation"
+  ],
+  "author": {
+    "name": "Quicksilver0218"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^17.0.22",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.26.0",
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.3",
+    "uglify-js": "^3.14.2"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/index.d.ts"
+  ],
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quicksilver0218/React-Pagin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Quicksilver0218/React-Pagin/issues"
+  },
+  "homepage": "https://github.com/Quicksilver0218/React-Pagin#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}
