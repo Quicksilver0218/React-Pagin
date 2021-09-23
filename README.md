@@ -42,8 +42,8 @@ const MyComponent = (/* ... */) => {
 | parentElement? | ComponentType | The base component wrapping all the content. |
 | firstElement? | ReactNode | The first element under the parent, which commonly defined as a button navigating to the first page. |
 | lastElement? | ReactNode | The last element under the parent, which commonly defined as a button navigating to the last page. |
-| previousElement? | ReactNode | The element after `firstElement`, which commonly defined as a button navigating to the previuos page. |
-| nextElement? | ReactNode | The element before `lastElement`, which commonly defined as a button navigating to the next page. |
+| previousElement? | ReactNode | The element behind `firstElement`, which commonly defined as a button navigating to the previuos page. |
+| nextElement? | ReactNode | The element in front of `lastElement`, which commonly defined as a button navigating to the next page. |
 | pageElement | ComponentType<{ page: number }> | The element that represents a page. The number of instances is controlled by `edgeItemCount` and `middleItemRange`, and of course `pageCount`. Also be slightly affected by `currentPage`. The page number will be passed to `page`. |
 | ellipsisElement | ComponentType<{ side: "start" \| "end" }> | The element shown between the edge items and the middle items when the current page is far away from the edge. `"start"` or `"end"` representing the side it being placed will be passed to `side`. |
 
