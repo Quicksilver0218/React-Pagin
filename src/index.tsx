@@ -12,23 +12,26 @@ const Pagination = ({
   nextElement,
   pageElement: PageElement,
   ellipsisElement: EllipsisElement,
+  ellipsisSize = EllipsisElement ? 1 : 0,
   ...rest
 }: Props) => {
   const middleElements = [];
   for (let i = 1; i <= pageCount; i++)
     if (
       i > edgeItemCount &&
-      currentPage > edgeItemCount + middleItemRange + 2 &&
-      i < Math.min(currentPage - middleItemRange, pageCount - edgeItemCount - middleItemRange * 2 - 2)
+      currentPage > edgeItemCount + ellipsisSize + middleItemRange + 1 &&
+      i < Math.min(currentPage - middleItemRange, pageCount - edgeItemCount - ellipsisSize * 2 - middleItemRange * 2)
     ) {
-      middleElements.push(<EllipsisElement side="start" />);
-      i = Math.min(currentPage - middleItemRange - 1, pageCount - edgeItemCount - middleItemRange * 2 - 2);
+      if (EllipsisElement)
+        middleElements.push(<EllipsisElement side="start" />);
+      i = Math.min(currentPage - middleItemRange, pageCount - edgeItemCount - ellipsisSize - middleItemRange * 2) - 1;
     } else if (
-      i < pageCount - edgeItemCount + 1 &&
-      currentPage < pageCount - edgeItemCount - middleItemRange - 1 &&
-      i > Math.max(currentPage + middleItemRange, edgeItemCount + middleItemRange * 2 + 2)
+      i <= pageCount - edgeItemCount - ellipsisSize &&
+      currentPage <= pageCount - (edgeItemCount + ellipsisSize + middleItemRange + 1) &&
+      i > Math.max(currentPage + middleItemRange, edgeItemCount + ellipsisSize + middleItemRange * 2 + 1)
     ) {
-      middleElements.push(<EllipsisElement side="end" />);
+      if (EllipsisElement)
+        middleElements.push(<EllipsisElement side="end" />);
       i = pageCount - edgeItemCount;
     } else middleElements.push(<PageElement page={i} />);
 
@@ -57,7 +60,8 @@ export type Props = {
   previousElement?: ReactNode;
   nextElement?: ReactNode;
   pageElement: ComponentType<{ page: number }>;
-  ellipsisElement: ComponentType<{ side: "start" | "end" }>;
+  ellipsisElement?: ComponentType<{ side: "start" | "end" }>;
+  ellipsisSize?: number;
 };
 
 export default Pagination;

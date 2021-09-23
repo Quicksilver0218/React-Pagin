@@ -27,6 +27,7 @@ const MyComponent = (/* ... */) => {
       nextElement={}
       pageElement={}
       ellipsisElement={}
+      ellipsisSize={}
     />
     
     // ...
@@ -45,7 +46,8 @@ const MyComponent = (/* ... */) => {
 | previousElement? | ReactNode | The element behind `firstElement`, which is commonly defined as a button navigating to the previuos page. |
 | nextElement? | ReactNode | The element in front of `lastElement`, which is commonly defined as a button navigating to the next page. |
 | pageElement | ComponentType<{ page: number }> | The element that represents a page. The number of instances is controlled by `edgeItemCount` and `middleItemRange`, and of course `pageCount`. Also be slightly affected by `currentPage`. The page number will be passed to `page`. |
-| ellipsisElement | ComponentType<{ side: "start" \| "end" }> | The element shown between the edge items and the middle items when the current page is far away from the edge. `"start"` or `"end"` representing the side it being placed will be passed to `side`. |
+| ellipsisElement? | ComponentType<{ side: "start" \| "end" }> | The element shown between the edge items and the middle items when the current page is far away from the edge. `"start"` or `"end"` representing the side it being placed will be passed to `side`. |
+| ellipsisSize? | number | The size of `ellipsisElement`, measured in times of the size of `pageElement`. Default `1` if `ellipsisElement` is assigned, otherwise default `0`. |
 
 ## Examples
 It can be integrated with any UI frameworks such as [React Bootstrap](https://react-bootstrap.github.io) and [Ant Design](https://ant.design).  
