@@ -34,18 +34,18 @@ const MyComponent = (/* ... */) => {
   );
 }
 ```
-| Properties | Type | Description |
+| Property | Type | Description |
 | --- | --- | --- |
 | currentPage | number | The page number of the current page, which starts from 1. |
 | pageCount | number | The total number of pages. |
 | edgeItemCount? | number | The number of items shown near each edge when the current page is far away from the edge. Default `1`. |
 | middleItemRange? | number | The number of items shown on each side of the current page item. Default `3`. |
-| parentElement? | ComponentType | The base component wrapping all the content. |
+| parentElement? | ComponentType \| DetailedHTMLProps<any, any> | The base component wrapping all the content. |
 | firstElement? | ReactNode | The first element under the parent, which is commonly defined as a button navigating to the first page. |
 | lastElement? | ReactNode | The last element under the parent, which is commonly defined as a button navigating to the last page. |
 | previousElement? | ReactNode | The element behind `firstElement`, which is commonly defined as a button navigating to the previuos page. |
 | nextElement? | ReactNode | The element in front of `lastElement`, which is commonly defined as a button navigating to the next page. |
-| pageElement | ComponentType<{ page: number }> | The element that represents a page. The number of instances is controlled by `edgeItemCount` and `middleItemRange`, and of course `pageCount`. Also be slightly affected by `currentPage`. The page number will be passed to `page`. |
+| pageElement | ComponentType<{ page: number }> | The element that represents a page. The number of instances is controlled by `edgeItemCount` and `middleItemRange`, and of course `pageCount`. It is also controlled by `ellipsisSize` depends on `currentPage`. The page number will be passed to `page`. |
 | ellipsisElement? | ComponentType<{ side: "start" \| "end" }> | The element shown between the edge items and the middle items when the current page is far away from the edge. `"start"` or `"end"` representing the side it being placed will be passed to `side`. |
 | ellipsisSize? | number | The size of `ellipsisElement`, measured in times of the size of `pageElement`. Default `1` if `ellipsisElement` is assigned, otherwise default `0`. |
 
