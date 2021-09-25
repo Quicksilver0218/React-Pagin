@@ -15,31 +15,48 @@ const Pagination = ({
   ellipsisSize = EllipsisElement ? 1 : 0,
   ...rest
 }: Props) => {
-  const middleElements = [];
-  for (let i = 1; i <= pageCount; i++)
+  const mainElements = [];
+  let i = 1;
+  while (i <= pageCount)
     if (
-      i > edgeItemCount &&
-      currentPage > edgeItemCount + ellipsisSize + middleItemRange + 1 &&
-      i < Math.min(currentPage - middleItemRange, pageCount - edgeItemCount - ellipsisSize * 2 - middleItemRange * 2)
+      (i >= currentPage - middleItemRange && i <= currentPage + middleItemRange) ||
+      i <= edgeItemCount ||
+      i > pageCount - edgeItemCount
     ) {
-      if (EllipsisElement)
-        middleElements.push(<EllipsisElement side="start" />);
-      i = Math.min(currentPage - middleItemRange, pageCount - edgeItemCount - ellipsisSize - middleItemRange * 2) - 1;
-    } else if (
-      i <= pageCount - edgeItemCount - ellipsisSize &&
-      currentPage <= pageCount - (edgeItemCount + ellipsisSize + middleItemRange + 1) &&
-      i > Math.max(currentPage + middleItemRange, edgeItemCount + ellipsisSize + middleItemRange * 2 + 1)
-    ) {
-      if (EllipsisElement)
-        middleElements.push(<EllipsisElement side="end" />);
-      i = pageCount - edgeItemCount;
-    } else middleElements.push(<PageElement page={i} />);
+      mainElements.push(<PageElement page={i} />);
+      i++;
+    } else {
+      if (i < currentPage) {
+        if (
+          i >=
+          Math.min(
+            currentPage - middleItemRange - ellipsisSize,
+            pageCount - edgeItemCount - ellipsisSize * 2 - middleItemRange * 2,
+          )
+        ) {
+          mainElements.push(<PageElement page={i} />);
+          i++;
+        } else {
+          if (EllipsisElement) mainElements.push(<EllipsisElement side="start" />);
+          i = Math.min(currentPage - middleItemRange, pageCount - edgeItemCount - ellipsisSize - middleItemRange * 2);
+        }
+      } else if (
+        i <= edgeItemCount + ellipsisSize + middleItemRange * 2 + 1 ||
+        i > pageCount - edgeItemCount - ellipsisSize
+      ) {
+        mainElements.push(<PageElement page={i} />);
+        i++;
+      } else {
+        if (EllipsisElement) mainElements.push(<EllipsisElement side="end" />);
+        i = pageCount - edgeItemCount + 1;
+      }
+    }
 
   return (
     <ParentElement {...rest}>
       {firstElement}
       {previousElement}
-      {middleElements.map((item, index) => (
+      {mainElements.map((item, index) => (
         <Fragment key={index}>{item}</Fragment>
       ))}
       {nextElement}
@@ -60,7 +77,7 @@ export type Props = {
   previousElement?: ReactNode;
   nextElement?: ReactNode;
   pageElement: ComponentType<{ page: number }>;
-  ellipsisElement?: ComponentType<{ side: "start" | "end" }>;
+  ellipsisElement?: ComponentType<{ side: 'start' | 'end' }>;
   ellipsisSize?: number;
 };
 
