@@ -1,14 +1,14 @@
 {
   "name": "@quicksilver0218/react-pagin",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A lightweight element organizing component allowing high customization for pagination, implemented in React.",
   "main": "lib",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --config jestconfig.json",
     "build": "tsc && cd lib && uglifyjs --compress --mangle -o index.js index.js",
     "format": "prettier --write \"src/**/*.tsx\"",
     "lint": "eslint src/** --fix",
-    "prepublishOnly": "npm run lint && npm run build"
+    "prepublishOnly": "npm test && npm run lint && npm run build"
   },
   "keywords": [
     "React",
@@ -20,12 +20,18 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/jest": "^27.0.2",
     "@types/react": "^17.0.22",
+    "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
     "eslint": "^7.32.0",
     "eslint-plugin-react": "^7.26.0",
+    "jest": "^27.2.4",
     "prettier": "^2.4.1",
+    "react": "^17.0.2",
+    "react-test-renderer": "^17.0.2",
+    "ts-jest": "^27.0.5",
     "typescript": "^4.4.3",
     "uglify-js": "^3.14.2"
   },

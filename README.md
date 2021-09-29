@@ -1,4 +1,4 @@
-# React-Pagin
+# React-Pagin &middot; ![Travis (.com)](https://img.shields.io/travis/com/quicksilver0218/react-pagin) ![npm (scoped)](https://img.shields.io/npm/v/@quicksilver0218/react-pagin)
 A lightweight element organizing component allowing high customization for pagination, implemented in React.
 
 ## Introduction
