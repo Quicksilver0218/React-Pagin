@@ -1,4 +1,4 @@
-import { ComponentType, DetailedHTMLProps, Fragment, ReactNode } from 'react';
+import { ComponentType, ElementType, Fragment, ReactNode } from 'react';
 
 const Pagination = ({
   currentPage,
@@ -71,7 +71,7 @@ export type Props = {
   pageCount: number;
   edgeItemCount?: number;
   middleItemRange?: number;
-  parentElement?: ComponentType | DetailedHTMLProps<any, any>;
+  parentElement?: ElementType;
   firstElement?: ReactNode;
   lastElement?: ReactNode;
   previousElement?: ReactNode;

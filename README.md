@@ -55,7 +55,7 @@ const MyComponent = (/* ... */) => {
 | pageCount | number | The total number of pages. |
 | edgeItemCount? | number | The number of items shown near each edge when the current page is far away from the edge. Default `1`. |
 | middleItemRange? | number | The number of items shown on each side of the current page item. Default `3`. |
-| parentElement? | ComponentType \| DetailedHTMLProps<any, any> | The base component wrapping all the content. |
+| parentElement? | ElementType | The base component wrapping all the content. |
 | firstElement? | ReactNode | The first element under the parent, which is commonly defined as a button navigating to the first page. |
 | lastElement? | ReactNode | The last element under the parent, which is commonly defined as a button navigating to the last page. |
 | previousElement? | ReactNode | The element behind `firstElement`, which is commonly defined as a button navigating to the previuos page. |
