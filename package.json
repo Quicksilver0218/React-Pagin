@@ -1,11 +1,16 @@
 {
   "name": "@quicksilver0218/react-pagin",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A lightweight element organizing component allowing high customization for pagination, implemented in React.",
-  "main": "lib",
+  "main": "lib/cjs",
+  "module": "lib/esm",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
-    "build": "tsc && cd lib && uglifyjs --compress --mangle -o index.js index.js",
+    "build": "npm run build:esm && npm run build:cjs && npm run build:types",
+    "build:esm": "tsc --module es6 --outDir lib/esm && uglifyjs --compress --mangle -o lib/esm/index.js lib/esm/index.js",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs && uglifyjs --compress --mangle -o lib/cjs/index.js lib/cjs/index.js",
+    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir lib",
     "format": "prettier --write \"src/**/*.tsx\"",
     "lint": "eslint src/** --fix",
     "prepublishOnly": "npm test && npm run lint && npm run build"
@@ -19,6 +24,7 @@
     "name": "Quicksilver0218"
   },
   "license": "MIT",
+  "dependencies": {},
   "devDependencies": {
     "@types/jest": "^27.0.2",
     "@types/react": "^17.0.22",
@@ -35,11 +41,13 @@
     "typescript": "^4.4.3",
     "uglify-js": "^3.14.2"
   },
+  "peerDependencies": {
+    "react": "*"
+  },
   "files": [
-    "lib/index.js",
-    "lib/index.d.ts"
+    "lib",
+    "src"
   ],
-  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Quicksilver0218/React-Pagin.git"

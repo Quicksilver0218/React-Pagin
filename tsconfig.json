@@ -5,13 +5,9 @@
   "compilerOptions": {
     "strict": true,
     "esModuleInterop": true,
-    "lib": [
-      "dom",
-      "es2015"
-    ],
+    "moduleResolution": "node",
     "jsx": "react-jsx",
-    "declaration": true,
-    "target": "es5",
+    "target": "es6",
     "outDir": "lib"
   }
 }
