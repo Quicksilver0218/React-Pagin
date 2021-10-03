@@ -6,6 +6,7 @@
     "strict": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
+    "sourceMap": true,
     "jsx": "react-jsx",
     "target": "es6",
     "outDir": "lib"

@@ -1,6 +1,6 @@
 {
   "name": "@quicksilver0218/react-pagin",
-  "version": "1.2.3",
+  "version": "1.2.5",
   "description": "A lightweight element organizing component allowing high customization for pagination, implemented in React.",
   "main": "lib/cjs",
   "module": "lib/esm",
@@ -16,9 +16,15 @@
     "prepublishOnly": "npm test && npm run lint && npm run build"
   },
   "keywords": [
-    "React",
-    "Pagination",
-    "Page Navigation"
+    "react",
+    "react-component",
+    "paginate",
+    "paginator",
+    "pagination",
+    "pagination-component",
+    "page-navigation",
+    "custom",
+    "customization"
   ],
   "author": {
     "name": "Quicksilver0218"
