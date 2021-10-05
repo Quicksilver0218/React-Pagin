@@ -1,9 +1,9 @@
-import renderer from 'react-test-renderer';
+import { create } from 'react-test-renderer';
 import Pagination from '../src';
 
 test('Hide Ellipsis', () => {
   expect(
-    renderer.create(
+    create(
       <Pagination
         currentPage={1}
         pageCount={11}
@@ -22,7 +22,7 @@ test('Hide Ellipsis', () => {
   ).toMatchSnapshot();
 
   expect(
-    renderer.create(
+    create(
       <Pagination
         currentPage={7}
         pageCount={13}
@@ -43,7 +43,7 @@ test('Hide Ellipsis', () => {
 
 test('1 Ellipsis', () => {
   expect(
-    renderer.create(
+    create(
       <Pagination
         currentPage={1}
         pageCount={12}
@@ -62,7 +62,7 @@ test('1 Ellipsis', () => {
   ).toMatchSnapshot();
 
   expect(
-    renderer.create(
+    create(
       <Pagination
         currentPage={6}
         pageCount={12}
@@ -81,7 +81,7 @@ test('1 Ellipsis', () => {
   ).toMatchSnapshot();
 
   expect(
-    renderer.create(
+    create(
       <Pagination
         currentPage={7}
         pageCount={12}
@@ -100,7 +100,7 @@ test('1 Ellipsis', () => {
   ).toMatchSnapshot();
 
   expect(
-    renderer.create(
+    create(
       <Pagination
         currentPage={12}
         pageCount={12}
@@ -121,7 +121,7 @@ test('1 Ellipsis', () => {
 
 test('2 Ellipsis', () => {
   expect(
-    renderer.create(
+    create(
       <Pagination
         currentPage={7}
         pageCount={13}
@@ -142,7 +142,7 @@ test('2 Ellipsis', () => {
 
 test('All Default', () => {
   expect(
-    renderer.create(
+    create(
       <Pagination
         currentPage={7}
         pageCount={13}
@@ -153,7 +153,7 @@ test('All Default', () => {
   ).toMatchSnapshot();
 
   expect(
-    renderer.create(
+    create(
       <Pagination
         currentPage={5}
         pageCount={10}
@@ -165,7 +165,7 @@ test('All Default', () => {
 
 test('Default Ellipsis Size', () => {
   expect(
-    renderer.create(
+    create(
       <Pagination
         currentPage={1}
         pageCount={12}
@@ -178,7 +178,7 @@ test('Default Ellipsis Size', () => {
   ).toMatchSnapshot();
 
   expect(
-    renderer.create(
+    create(
       <Pagination
         currentPage={6}
         pageCount={11}
@@ -192,7 +192,7 @@ test('Default Ellipsis Size', () => {
 
 test('Middle Item Range', () => {
   expect(
-    renderer.create(
+    create(
       <Pagination
         currentPage={6}
         pageCount={11}
@@ -206,7 +206,7 @@ test('Middle Item Range', () => {
   ).toMatchSnapshot();
 
   expect(
-    renderer.create(
+    create(
       <Pagination
         currentPage={5}
         pageCount={10}
@@ -220,7 +220,7 @@ test('Middle Item Range', () => {
   ).toMatchSnapshot();
 
   expect(
-    renderer.create(
+    create(
       <Pagination
         currentPage={6}
         pageCount={10}
@@ -236,7 +236,7 @@ test('Middle Item Range', () => {
 
 test('Ellipsis Size', () => {
   expect(
-    renderer.create(
+    create(
       <Pagination
         currentPage={6}
         pageCount={11}
@@ -250,7 +250,7 @@ test('Ellipsis Size', () => {
   ).toMatchSnapshot();
 
   expect(
-    renderer.create(
+    create(
       <Pagination
         currentPage={6}
         pageCount={12}
@@ -264,7 +264,7 @@ test('Ellipsis Size', () => {
   ).toMatchSnapshot();
 
   expect(
-    renderer.create(
+    create(
       <Pagination
         currentPage={7}
         pageCount={12}
