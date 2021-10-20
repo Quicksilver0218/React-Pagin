@@ -40,7 +40,9 @@ const MyComponent = (/* ... */) => {
       previousElement={}
       nextElement={}
       pageElement={}
+      pageProps={}
       ellipsisElement={}
+      ellipsisProps={}
       ellipsisSize={}
     />
     
@@ -60,8 +62,10 @@ const MyComponent = (/* ... */) => {
 | lastElement? | ReactNode | The last element under the parent element, usually the button navigating to the last page. |
 | previousElement? | ReactNode | The element behind `firstElement`, usually the button navigating to the previous page. |
 | nextElement? | ReactNode | The element in front of `lastElement`, usually the button navigating to the next page. |
-| pageElement | ComponentType<{ page: number }> | The element that represents a page. The quantity of instances is controlled by `edgeItemCount` and `middleItemRange`, and of course `pageCount`. It is also controlled by `ellipsisSize` depends on `currentPage`. The page number will be passed to `page`. |
-| ellipsisElement? | ComponentType<{ side: "start" \| "end" }> | The element shown between the edge items and the middle items when the current page is far away from the edge. `"start"` or `"end"` representing the side it being placed will be passed to `side`. |
+| pageElement | ComponentType<{ page: number; props: any }> | The element that represents a page. The quantity of instances is controlled by `edgeItemCount` and `middleItemRange`, and of course `pageCount`. It is also controlled by `ellipsisSize` depends on `currentPage`. The page number will be passed to `page`. |
+| pageProps? | any | Other properties to be passed to `props` in `pageElement`. |
+| ellipsisElement? | ComponentType<{ side: 'start' \| 'end'; props: any }> | The element shown between the edge items and the middle items when the current page is far away from the edge. `"start"` or `"end"` representing the side it being placed will be passed to `side`. |
+| ellipsisProps? | any | Other properties to be passed to `props` in `ellipsisElement`. |
 | ellipsisSize? | number | The size of `ellipsisElement`, measured in times of the size of `pageElement`. It does not affect the visual size of `ellipsisElement`. It is only used to control the quantity of `pageElement` to be shown between the edge items and the middle items. Default `1` if `ellipsisElement` is assigned, otherwise default `0`. |
 
 ## Examples

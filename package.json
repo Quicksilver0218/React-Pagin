@@ -1,6 +1,6 @@
 {
   "name": "@quicksilver0218/react-pagin",
-  "version": "1.2.8",
+  "version": "1.3.1",
   "description": "A lightweight element organizing component allowing high customization for pagination, implemented in React.",
   "main": "dist",
   "types": "dist/index.d.ts",
@@ -26,7 +26,6 @@
     "name": "Quicksilver0218"
   },
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "@types/jest": "^27.0.2",
     "@types/react": "^17.0.22",

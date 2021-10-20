@@ -1,6 +1,6 @@
 import { ComponentType, ElementType, Fragment, ReactNode } from 'react';
 
-const Pagination = ({
+const Pagination = <PagePropsType, EllipsisPropsType>({
   currentPage,
   pageCount,
   edgeItemCount = 1,
@@ -11,10 +11,12 @@ const Pagination = ({
   previousElement,
   nextElement,
   pageElement: PageElement,
+  pageProps,
   ellipsisElement: EllipsisElement,
+  ellipsisProps,
   ellipsisSize = EllipsisElement ? 1 : 0,
   ...rest
-}: Props) => {
+}: Props<PagePropsType, EllipsisPropsType>) => {
   const mainElements = [];
   let i = 1;
   while (i <= pageCount)
@@ -23,7 +25,7 @@ const Pagination = ({
       i <= edgeItemCount ||
       i > pageCount - edgeItemCount
     ) {
-      mainElements.push(<PageElement page={i} />);
+      mainElements.push(<PageElement page={i} props={pageProps} />);
       i++;
     } else {
       if (i < currentPage) {
@@ -34,20 +36,20 @@ const Pagination = ({
             pageCount - edgeItemCount - ellipsisSize * 2 - middleItemRange * 2,
           )
         ) {
-          mainElements.push(<PageElement page={i} />);
+          mainElements.push(<PageElement page={i} props={pageProps} />);
           i++;
         } else {
-          if (EllipsisElement) mainElements.push(<EllipsisElement side="start" />);
+          if (EllipsisElement) mainElements.push(<EllipsisElement side="start" props={ellipsisProps} />);
           i = Math.min(currentPage - middleItemRange, pageCount - edgeItemCount - ellipsisSize - middleItemRange * 2);
         }
       } else if (
         i <= edgeItemCount + ellipsisSize + middleItemRange * 2 + 1 ||
         i > pageCount - edgeItemCount - ellipsisSize
       ) {
-        mainElements.push(<PageElement page={i} />);
+        mainElements.push(<PageElement page={i} props={pageProps} />);
         i++;
       } else {
-        if (EllipsisElement) mainElements.push(<EllipsisElement side="end" />);
+        if (EllipsisElement) mainElements.push(<EllipsisElement side="end" props={ellipsisProps} />);
         i = pageCount - edgeItemCount + 1;
       }
     }
@@ -65,7 +67,7 @@ const Pagination = ({
   );
 };
 
-export type Props = {
+export type Props<PagePropsType, EllipsisPropsType> = {
   [key: string]: any;
   currentPage: number;
   pageCount: number;
@@ -76,8 +78,10 @@ export type Props = {
   lastElement?: ReactNode;
   previousElement?: ReactNode;
   nextElement?: ReactNode;
-  pageElement: ComponentType<{ page: number }>;
-  ellipsisElement?: ComponentType<{ side: 'start' | 'end' }>;
+  pageElement: ComponentType<{ page: number; props?: PagePropsType }>;
+  pageProps?: PagePropsType;
+  ellipsisElement?: ComponentType<{ side: 'start' | 'end'; props?: EllipsisPropsType }>;
+  ellipsisProps?: EllipsisPropsType;
   ellipsisSize?: number;
 };
 
