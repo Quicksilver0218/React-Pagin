@@ -4,7 +4,7 @@ A lightweight element organizing component allowing high customization for pagin
 ## Introduction
 There are many UI frameworks, such as [Bootstrap](https://getbootstrap.com), which provide beautifully styled pagination components.
 However, you still need to place the components and control their visibility correctly to assure functionality.
-React-Pagin helps you organize your pagination components marvellously.
+**React-Pagin** helps you organize your pagination components marvellously.
 
 On the other hand, some React UI frameworks package everything into one component, using a black box design.  
 Well, it seems convenient. But, how can you change the styles of the inner elements?
@@ -32,7 +32,7 @@ const MyComponent = (/* ... */) => {
     <Pagination
       currentPage={}
       pageCount={}
-      endPointItemCount={}
+      edgeItemCount={}
       middleItemRange={}
       parentElement={}
       firstElement={}
