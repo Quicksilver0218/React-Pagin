@@ -1,8 +1,8 @@
-# React-Pagin &middot; [![Travis (.com)](https://img.shields.io/travis/com/quicksilver0218/react-pagin)](https://app.travis-ci.com/github/Quicksilver0218/React-Pagin) [![Libraries.io dependency status for latest release, scoped npm package](https://img.shields.io/librariesio/release/npm/@quicksilver0218/react-pagin)](https://libraries.io/npm/@quicksilver0218%2Freact-pagin) [![npm (scoped)](https://img.shields.io/npm/v/@quicksilver0218/react-pagin)](https://www.npmjs.com/package/@quicksilver0218/react-pagin) [![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@quicksilver0218/react-pagin@)](https://bundlephobia.com/package/@quicksilver0218/react-pagin) [![GitHub](https://img.shields.io/github/license/quicksilver0218/react-pagin)](https://github.com/Quicksilver0218/React-Pagin/blob/main/LICENSE)
-A lightweight element organizing component allowing high customization for pagination, implemented in React.
+# React-Pagin &middot; [![Travis (.com)](https://img.shields.io/travis/com/quicksilver0218/react-pagin)](https://app.travis-ci.com/github/Quicksilver0218/React-Pagin) [![npm (scoped)](https://img.shields.io/npm/v/@quicksilver0218/react-pagin)](https://www.npmjs.com/package/@quicksilver0218/react-pagin) [![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@quicksilver0218/react-pagin@)](https://bundlephobia.com/package/@quicksilver0218/react-pagin) [![GitHub](https://img.shields.io/github/license/quicksilver0218/react-pagin)](https://github.com/Quicksilver0218/React-Pagin/blob/main/LICENSE)
+A lightweight element organizing React component that allows high customization for pagination.
 
 ## Introduction
-There are many UI frameworks, such as [Bootstrap](https://getbootstrap.com), which provide beautifully styled pagination components.
+Many UI frameworks, such as [Bootstrap](https://getbootstrap.com), provide beautifully styled pagination components.
 However, you still need to place the components and control their visibility correctly to assure functionality.
 **React-Pagin** helps you organize your pagination components marvellously.
 
@@ -11,7 +11,7 @@ Well, it seems convenient. But, how can you change the styles of the inner eleme
 
 *Oh! Let's check the DOM tree and the class names carefully, and then add some declarations to the global CSS file, even when you are just styling a specific pagination bar!*
 
-Okay! But now I want to change the number of buttons shown on the bar. *Ug...*
+Okay! But now I want to change the number of buttons on the bar. *Ug...*
 
 Let **React-Pagin** solves these problems.
 
