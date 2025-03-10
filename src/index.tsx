@@ -1,11 +1,10 @@
-import { ComponentType, ElementType, Fragment, ReactNode } from 'react';
+import { ComponentType, Fragment, ReactNode } from 'react';
 
 const Pagination = <PagePropsType, EllipsisPropsType>({
   currentPage,
   pageCount,
   edgeItemCount = 1,
   middleItemRange = 3,
-  parentElement: ParentElement = Fragment,
   firstElement,
   lastElement,
   previousElement,
@@ -15,7 +14,6 @@ const Pagination = <PagePropsType, EllipsisPropsType>({
   ellipsisElement: EllipsisElement,
   ellipsisProps,
   ellipsisSize = EllipsisElement ? 1 : 0,
-  ...rest
 }: Props<PagePropsType, EllipsisPropsType>) => {
   const mainElements = [];
   let i = 1;
@@ -55,7 +53,7 @@ const Pagination = <PagePropsType, EllipsisPropsType>({
     }
 
   return (
-    <ParentElement {...rest}>
+    <>
       {firstElement}
       {previousElement}
       {mainElements.map((item, index) => (
@@ -63,17 +61,15 @@ const Pagination = <PagePropsType, EllipsisPropsType>({
       ))}
       {nextElement}
       {lastElement}
-    </ParentElement>
+    </>
   );
 };
 
 export type Props<PagePropsType, EllipsisPropsType> = {
-  [key: string]: any;
   currentPage: number;
   pageCount: number;
   edgeItemCount?: number;
   middleItemRange?: number;
-  parentElement?: ElementType;
   firstElement?: ReactNode;
   lastElement?: ReactNode;
   previousElement?: ReactNode;

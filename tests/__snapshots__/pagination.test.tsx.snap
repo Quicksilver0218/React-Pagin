@@ -1,0 +1,291 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1 Ellipsis 1`] = `
+<div>
+  first
+  prev
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+  end
+  12
+  next
+  last
+</div>
+`;
+
+exports[`1 Ellipsis 2`] = `
+<div>
+  first
+  prev
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+  end
+  12
+  next
+  last
+</div>
+`;
+
+exports[`1 Ellipsis 3`] = `
+<div>
+  first
+  prev
+  1
+  start
+  4
+  5
+  6
+  7
+  8
+  9
+  10
+  11
+  12
+  next
+  last
+</div>
+`;
+
+exports[`1 Ellipsis 4`] = `
+<div>
+  first
+  prev
+  1
+  start
+  4
+  5
+  6
+  7
+  8
+  9
+  10
+  11
+  12
+  next
+  last
+</div>
+`;
+
+exports[`2 Ellipsis 1`] = `
+<div>
+  first
+  prev
+  1
+  start
+  4
+  5
+  6
+  7
+  8
+  9
+  10
+  end
+  13
+  next
+  last
+</div>
+`;
+
+exports[`All Default 1`] = `
+<div>
+  1
+  start
+  4
+  5
+  6
+  7
+  8
+  9
+  10
+  end
+  13
+</div>
+`;
+
+exports[`All Default 2`] = `
+<div>
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  10
+</div>
+`;
+
+exports[`Default Ellipsis Size 1`] = `
+<div>
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+  end
+  12
+</div>
+`;
+
+exports[`Default Ellipsis Size 2`] = `
+<div>
+  1
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+  11
+</div>
+`;
+
+exports[`Ellipsis Size 1`] = `
+<div>
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+  10
+  11
+</div>
+`;
+
+exports[`Ellipsis Size 2`] = `
+<div>
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  end
+  12
+</div>
+`;
+
+exports[`Ellipsis Size 3`] = `
+<div>
+  1
+  start
+  5
+  6
+  7
+  8
+  9
+  10
+  11
+  12
+</div>
+`;
+
+exports[`Hide Ellipsis 1`] = `
+<div>
+  first
+  prev
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+  10
+  11
+  next
+  last
+</div>
+`;
+
+exports[`Hide Ellipsis 2`] = `
+<div>
+  first
+  prev
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+  10
+  11
+  12
+  13
+  next
+  last
+</div>
+`;
+
+exports[`Middle Item Range 1`] = `
+<div>
+  1
+  start
+  4
+  5
+  6
+  7
+  8
+  end
+  11
+</div>
+`;
+
+exports[`Middle Item Range 2`] = `
+<div>
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  end
+  10
+</div>
+`;
+
+exports[`Middle Item Range 3`] = `
+<div>
+  1
+  start
+  4
+  5
+  6
+  7
+  8
+  9
+  10
+</div>
+`;

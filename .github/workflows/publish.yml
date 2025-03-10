@@ -1,0 +1,23 @@
+name: Publish package
+on:
+  workflow_dispatch:
+jobs:
+  publish_npm:
+    name: Publish package to the npm Public Registry
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Publish package
+        run: |
+          npm i
+          npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

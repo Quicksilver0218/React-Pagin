@@ -7,8 +7,8 @@
     "declaration": true,
     "moduleResolution": "node",
     "jsx": "react-jsx",
-    "module": "commonjs",
-    "target": "es6",
+    "module": "ESNext",
+    "target": "ESNext",
     "outDir": "dist"
   }
 }

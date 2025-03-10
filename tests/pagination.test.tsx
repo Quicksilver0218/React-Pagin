@@ -1,15 +1,18 @@
-import { create } from 'react-test-renderer';
-import Pagination from '../src';
+/**
+ * @jest-environment jsdom
+ */
 
-test('Hide Ellipsis', () => {
+import { render } from "@testing-library/react";
+import Pagination from "../src";
+
+test("Hide Ellipsis", () => {
   expect(
-    create(
+    render(
       <Pagination
         currentPage={1}
         pageCount={11}
         edgeItemCount={1}
         middleItemRange={3}
-        parentElement={({children}) => (<>[{children}]</>)}
         firstElement="first"
         lastElement="last"
         previousElement="prev"
@@ -18,17 +21,16 @@ test('Hide Ellipsis', () => {
         ellipsisElement={({side}) => <>{side}</>}
         ellipsisSize={1}
       />
-    ).toJSON()
+    ).container
   ).toMatchSnapshot();
 
   expect(
-    create(
+    render(
       <Pagination
         currentPage={7}
         pageCount={13}
         edgeItemCount={1}
         middleItemRange={3}
-        parentElement={({children}) => (<>[{children}]</>)}
         firstElement="first"
         lastElement="last"
         previousElement="prev"
@@ -37,19 +39,18 @@ test('Hide Ellipsis', () => {
         ellipsisElement={({side}) => <>{side}</>}
         ellipsisSize={2}
       />
-    ).toJSON()
+    ).container
   ).toMatchSnapshot();
 });
 
-test('1 Ellipsis', () => {
+test("1 Ellipsis", () => {
   expect(
-    create(
+    render(
       <Pagination
         currentPage={1}
         pageCount={12}
         edgeItemCount={1}
         middleItemRange={3}
-        parentElement={({children}) => (<>[{children}]</>)}
         firstElement="first"
         lastElement="last"
         previousElement="prev"
@@ -58,17 +59,16 @@ test('1 Ellipsis', () => {
         ellipsisElement={({side}) => <>{side}</>}
         ellipsisSize={1}
       />
-    ).toJSON()
+    ).container
   ).toMatchSnapshot();
 
   expect(
-    create(
+    render(
       <Pagination
         currentPage={6}
         pageCount={12}
         edgeItemCount={1}
         middleItemRange={3}
-        parentElement={({children}) => (<>[{children}]</>)}
         firstElement="first"
         lastElement="last"
         previousElement="prev"
@@ -77,17 +77,16 @@ test('1 Ellipsis', () => {
         ellipsisElement={({side}) => <>{side}</>}
         ellipsisSize={1}
       />
-    ).toJSON()
+    ).container
   ).toMatchSnapshot();
 
   expect(
-    create(
+    render(
       <Pagination
         currentPage={7}
         pageCount={12}
         edgeItemCount={1}
         middleItemRange={3}
-        parentElement={({children}) => (<>[{children}]</>)}
         firstElement="first"
         lastElement="last"
         previousElement="prev"
@@ -96,17 +95,16 @@ test('1 Ellipsis', () => {
         ellipsisElement={({side}) => <>{side}</>}
         ellipsisSize={1}
       />
-    ).toJSON()
+    ).container
   ).toMatchSnapshot();
 
   expect(
-    create(
+    render(
       <Pagination
         currentPage={12}
         pageCount={12}
         edgeItemCount={1}
         middleItemRange={3}
-        parentElement={({children}) => (<>[{children}]</>)}
         firstElement="first"
         lastElement="last"
         previousElement="prev"
@@ -115,19 +113,18 @@ test('1 Ellipsis', () => {
         ellipsisElement={({side}) => <>{side}</>}
         ellipsisSize={1}
       />
-    ).toJSON()
+    ).container
   ).toMatchSnapshot();
 });
 
-test('2 Ellipsis', () => {
+test("2 Ellipsis", () => {
   expect(
-    create(
+    render(
       <Pagination
         currentPage={7}
         pageCount={13}
         edgeItemCount={1}
         middleItemRange={3}
-        parentElement={({children}) => (<>[{children}]</>)}
         firstElement="first"
         lastElement="last"
         previousElement="prev"
@@ -136,36 +133,36 @@ test('2 Ellipsis', () => {
         ellipsisElement={({side}) => <>{side}</>}
         ellipsisSize={1}
       />
-    ).toJSON()
+    ).container
   ).toMatchSnapshot();
 });
 
-test('All Default', () => {
+test("All Default", () => {
   expect(
-    create(
+    render(
       <Pagination
         currentPage={7}
         pageCount={13}
         pageElement={({page}) => <>{page}</>}
         ellipsisElement={({side}) => <>{side}</>}
       />
-    ).toJSON()
+    ).container
   ).toMatchSnapshot();
 
   expect(
-    create(
+    render(
       <Pagination
         currentPage={5}
         pageCount={10}
         pageElement={({page}) => <>{page}</>}
       />
-    ).toJSON()
+    ).container
   ).toMatchSnapshot();
 });
 
-test('Default Ellipsis Size', () => {
+test("Default Ellipsis Size", () => {
   expect(
-    create(
+    render(
       <Pagination
         currentPage={1}
         pageCount={12}
@@ -174,11 +171,11 @@ test('Default Ellipsis Size', () => {
         pageElement={({page}) => <>{page}</>}
         ellipsisElement={({side}) => <>{side}</>}
       />
-    ).toJSON()
+    ).container
   ).toMatchSnapshot();
 
   expect(
-    create(
+    render(
       <Pagination
         currentPage={6}
         pageCount={11}
@@ -186,13 +183,13 @@ test('Default Ellipsis Size', () => {
         middleItemRange={3}
         pageElement={({page}) => <>{page}</>}
       />
-    ).toJSON()
+    ).container
   ).toMatchSnapshot();
 });
 
-test('Middle Item Range', () => {
+test("Middle Item Range", () => {
   expect(
-    create(
+    render(
       <Pagination
         currentPage={6}
         pageCount={11}
@@ -202,11 +199,11 @@ test('Middle Item Range', () => {
         ellipsisElement={({side}) => <>{side}</>}
         ellipsisSize={1}
       />
-    ).toJSON()
+    ).container
   ).toMatchSnapshot();
 
   expect(
-    create(
+    render(
       <Pagination
         currentPage={5}
         pageCount={10}
@@ -216,11 +213,11 @@ test('Middle Item Range', () => {
         ellipsisElement={({side}) => <>{side}</>}
         ellipsisSize={1}
       />
-    ).toJSON()
+    ).container
   ).toMatchSnapshot();
 
   expect(
-    create(
+    render(
       <Pagination
         currentPage={6}
         pageCount={10}
@@ -230,13 +227,13 @@ test('Middle Item Range', () => {
         ellipsisElement={({side}) => <>{side}</>}
         ellipsisSize={1}
       />
-    ).toJSON()
+    ).container
   ).toMatchSnapshot();
 });
 
-test('Ellipsis Size', () => {
+test("Ellipsis Size", () => {
   expect(
-    create(
+    render(
       <Pagination
         currentPage={6}
         pageCount={11}
@@ -246,11 +243,11 @@ test('Ellipsis Size', () => {
         ellipsisElement={({side}) => <>{side}</>}
         ellipsisSize={2}
       />
-    ).toJSON()
+    ).container
   ).toMatchSnapshot();
 
   expect(
-    create(
+    render(
       <Pagination
         currentPage={6}
         pageCount={12}
@@ -260,11 +257,11 @@ test('Ellipsis Size', () => {
         ellipsisElement={({side}) => <>{side}</>}
         ellipsisSize={2}
       />
-    ).toJSON()
+    ).container
   ).toMatchSnapshot();
 
   expect(
-    create(
+    render(
       <Pagination
         currentPage={7}
         pageCount={12}
@@ -274,6 +271,6 @@ test('Ellipsis Size', () => {
         ellipsisElement={({side}) => <>{side}</>}
         ellipsisSize={2}
       />
-    ).toJSON()
+    ).container
   ).toMatchSnapshot();
 });

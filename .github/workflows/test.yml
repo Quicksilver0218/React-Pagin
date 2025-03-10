@@ -1,0 +1,19 @@
+name: Test
+on:
+  push:
+    branches:
+      - main
+jobs:
+  snapshot_test:
+    name: Snapshot Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+      - name: Test
+        run: |
+          npm i
+          npm test
