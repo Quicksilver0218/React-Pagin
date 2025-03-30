@@ -1,4 +1,4 @@
-import { ComponentType, Fragment, ReactNode } from 'react';
+import { ComponentType, ReactNode } from "react";
 
 const Pagination = <PagePropsType, EllipsisPropsType>({
   currentPage,
@@ -15,7 +15,7 @@ const Pagination = <PagePropsType, EllipsisPropsType>({
   ellipsisProps,
   ellipsisSize = EllipsisElement ? 1 : 0,
 }: Props<PagePropsType, EllipsisPropsType>) => {
-  const mainElements = [];
+  const pages = [];
   let i = 1;
   while (i <= pageCount)
     if (
@@ -23,7 +23,7 @@ const Pagination = <PagePropsType, EllipsisPropsType>({
       i <= edgeItemCount ||
       i > pageCount - edgeItemCount
     ) {
-      mainElements.push(<PageElement page={i} props={pageProps} />);
+      pages.push(i);
       i++;
     } else {
       if (i < currentPage) {
@@ -34,20 +34,20 @@ const Pagination = <PagePropsType, EllipsisPropsType>({
             pageCount - edgeItemCount - ellipsisSize * 2 - middleItemRange * 2,
           )
         ) {
-          mainElements.push(<PageElement page={i} props={pageProps} />);
+          pages.push(i);
           i++;
         } else {
-          if (EllipsisElement) mainElements.push(<EllipsisElement side="start" props={ellipsisProps} />);
+          if (EllipsisElement) pages.push("start");
           i = Math.min(currentPage - middleItemRange, pageCount - edgeItemCount - ellipsisSize - middleItemRange * 2);
         }
       } else if (
         i <= edgeItemCount + ellipsisSize + middleItemRange * 2 + 1 ||
         i > pageCount - edgeItemCount - ellipsisSize
       ) {
-        mainElements.push(<PageElement page={i} props={pageProps} />);
+        pages.push(i);
         i++;
       } else {
-        if (EllipsisElement) mainElements.push(<EllipsisElement side="end" props={ellipsisProps} />);
+        if (EllipsisElement) pages.push("end");
         i = pageCount - edgeItemCount + 1;
       }
     }
@@ -56,8 +56,10 @@ const Pagination = <PagePropsType, EllipsisPropsType>({
     <>
       {firstElement}
       {previousElement}
-      {mainElements.map((item, index) => (
-        <Fragment key={index}>{item}</Fragment>
+      {pages.map(item => (
+        typeof item === "number" ?
+          <PageElement key={item} page={item} props={pageProps} /> :
+          EllipsisElement && <EllipsisElement key={item} side={item as "start" | "end"} props={ellipsisProps} />
       ))}
       {nextElement}
       {lastElement}
@@ -76,7 +78,7 @@ export type Props<PagePropsType, EllipsisPropsType> = {
   nextElement?: ReactNode;
   pageElement: ComponentType<{ page: number; props?: PagePropsType }>;
   pageProps?: PagePropsType;
-  ellipsisElement?: ComponentType<{ side: 'start' | 'end'; props?: EllipsisPropsType }>;
+  ellipsisElement?: ComponentType<{ side: "start" | "end"; props?: EllipsisPropsType }>;
   ellipsisProps?: EllipsisPropsType;
   ellipsisSize?: number;
 };
